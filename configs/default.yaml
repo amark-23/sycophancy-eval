@@ -1,0 +1,12 @@
+# Config-driven runs: every experiment reads its settings from here.
+seed: 0
+models:                # Ollama tags; verify against the Ollama library before pulling
+  - qwen2.5:0.5b
+  - qwen2.5:1.5b
+  - qwen2.5:3b
+temperature: 0.7       # >0 so that epochs measure within-item variance
+epochs: 5
+k_initial_samples: 3   # item counts as "known" only if correct on all k initial samples
+exp1:
+  dataset: data/processed/exp1_dev.jsonl   # switch to the held-out split only after prompts are frozen
+  n_items: null        # fill in at pre-registration time

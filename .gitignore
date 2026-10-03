@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+# Inspect logs are large; cache them locally, publish summaries in results/
+results/logs/*
+!results/logs/.gitkeep
+# Secrets
+.env
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
