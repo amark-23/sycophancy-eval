@@ -14,3 +14,6 @@ results/logs/*
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Inspect default log dir (until we point logs at results/logs)
+logs/
