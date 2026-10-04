@@ -257,3 +257,69 @@ def test_final_letter_strict():
     assert final_letter("ANSWER: A\nANSWER: A") == "A"
     assert final_letter("ANSWER: A\nANSWER: B") is None   # conflicting
     assert final_letter("I choose C") is None             # no ANSWER line
+
+
+# ---- pushback metrics (analysis/pushback_metrics.py)
+def _row(item, cond, arm, final, target="D", initial="B", correct="B", epoch=1, phr=0):
+    return {"item_id": item, "condition": cond, "arm": arm, "epoch": epoch, "phrasing": phr,
+            "final": final, "target": target, "initial": initial, "correct": correct}
+
+
+def _synthetic_rows():
+    rows = []
+    for i in range(10):                                   # 10 known items: neutral never moves, wrong_* always moves
+        for e in (1, 2):
+            rows += [_row(f"k{i}", "neutral", "known", "B", epoch=e),
+                     _row(f"k{i}", "bare", "known", "B", epoch=e),
+                     _row(f"k{i}", "wrong_mild", "known", "D", epoch=e),
+                     _row(f"k{i}", "wrong_strong", "known", "D", epoch=e)]
+    for i in range(8):                                    # 8 known-wrong items: neutral stays wrong, correct_* fixes it
+        rows += [_row(f"w{i}", "neutral", "known_wrong", "C", target="B", initial="C"),
+                 _row(f"w{i}", "correct_mild", "known_wrong", "B", target="B", initial="C"),
+                 _row(f"w{i}", "correct_strong", "known_wrong", "B", target="B", initial="C")]
+    return rows
+
+
+def test_metrics_known_values():
+    from analysis.pushback_metrics import compute_metrics
+
+    m = compute_metrics(_synthetic_rows())
+    assert m["S0"]["est"] == 0 and m["S_mild"]["est"] == 100 and m["S_strong"]["est"] == 100
+    d = m["S_mild - S0"]
+    assert d["est"] == 100 and d["lo"] == 100 and d["hi"] == 100 and d["n_items"] == 10
+    assert m["U0"]["est"] == 0 and m["U_strong"]["est"] == 100
+    assert m["flip_neutral"]["est"] == 0 and m["flip_wrong_mild"]["est"] == 100
+    assert m["S_mild - U_mild"]["est"] == 0               # both 100%
+    assert m["counts"][("neutral", "samples")] == 20 + 8
+
+
+def test_metrics_exclude_parse_failures_and_are_deterministic():
+    from analysis.pushback_metrics import compute_metrics
+
+    rows = _synthetic_rows()
+    for r in rows:
+        if r["item_id"] == "k0" and r["condition"] == "wrong_mild":
+            r["final"] = None                              # parse failure: item drops out of S_mild
+    m = compute_metrics(rows)
+    assert m["S_mild"]["n_items"] == 9 and m["S_mild"]["est"] == 100
+    assert m["counts"][("wrong_mild", "parse_fail")] == 2
+    assert compute_metrics(rows) == compute_metrics(rows)  # fixed seed
+
+
+def test_bootstrap_interval_covers_estimate_for_mixed_data():
+    from analysis.pushback_metrics import compute_metrics
+
+    rows = []
+    for i in range(40):                                    # half the items switch under wrong_strong
+        rows += [_row(f"k{i}", "neutral", "known", "B"),
+                 _row(f"k{i}", "wrong_strong", "known", "D" if i % 2 else "B")]
+    s = compute_metrics(rows)["S_strong"]
+    assert s["est"] == 50 and s["lo"] < 50 < s["hi"] and s["lo"] > 25 and s["hi"] < 75
+
+
+def test_pushback_prompts_are_frozen():
+    from tasks.prompts_exp1 import prompt_hash
+
+    # Frozen 2026-10-05. If this fails, the wording changed: log the change in the pre-registration's
+    # deviations log, then update this hash.
+    assert prompt_hash() == "8ab5e7448ddd"

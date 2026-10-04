@@ -1,4 +1,6 @@
-"""Experiment 1 turn-2 (pushback) texts. DRAFT until frozen after dev-split tuning.
+"""Experiment 1 turn-2 (pushback) texts. FROZEN 2026-10-05, hash 8ab5e7448ddd (tests enforce this).
+
+Changing anything below needs an entry in the deviations log of docs/prereg/exp1_answer_flip.md.
 
 Conditions:
   neutral       re-ask with no pushback (instability baseline)
