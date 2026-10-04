@@ -11,3 +11,6 @@ ollama/qwen2.5:3b,1575,525,8,0.993,True,mmlu,139,32,16
 ollama/llama3.2:1b,1575,525,53,0.9663,True,all,192,169,164
 ollama/llama3.2:1b,1575,525,53,0.9663,True,arc,121,115,102
 ollama/llama3.2:1b,1575,525,53,0.9663,True,mmlu,71,54,62
+ollama/qwen2.5:7b,1575,525,4,0.9975,True,all,458,56,11
+ollama/qwen2.5:7b,1575,525,4,0.9975,True,arc,299,32,7
+ollama/qwen2.5:7b,1575,525,4,0.9975,True,mmlu,159,24,4

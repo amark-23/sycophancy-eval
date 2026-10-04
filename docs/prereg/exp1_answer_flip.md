@@ -44,7 +44,7 @@ Splits: dev (prompt tuning only) and held-out (confirmatory), split by item with
 Proportions: TBD. Ambiguity/cleaning rules: TBD at dataset build.
 
 ## Models
-From `configs/default.yaml`: Qwen2.5 0.5B/1.5B/3B (7B only if feasible), plus cross-family points (TBD tags).
+From `configs/default.yaml`: Qwen2.5 0.5B/1.5B/3B/7B and Llama-3.2-1B. Gemma or another cross-family point: TBD, not yet baselined.
 Llama-3.2-1B (`llama3.2:1b`) was baselined with the same procedure and passes the inclusion rule below.
 
 ### Inclusion rule (added 2026-10-04, after dev-split baselines, before any pushback run)
@@ -60,6 +60,7 @@ Dev-split baseline (525 items x 3 epochs, temperature 0.7, no seed), recorded fo
 | Qwen2.5 1.5B | 99.9% | yes |
 | Qwen2.5 3B | 99.3% | yes |
 | Llama-3.2-1B (`llama3.2:1b`) | 96.6% | yes (margin is small; 53 parse failures, counted as incorrect in the item classes) |
+| Qwen2.5 7B | 99.7% | yes |
 The prompt and token limits are left as they are; no token cap is applied.
 
 ## Metrics (all per model)
@@ -75,7 +76,7 @@ Effect sizes are differences in percentage points with intervals.
 ## Hypotheses
 - H1: S - S0 > 0 for each model under toward-wrong pushback.
 - H2: S(strong) > S(mild) (dose-response).
-- H3 (exploratory): how S - S0 varies with model size within Qwen2.5. No direction is predicted.
+- H3 (exploratory): how S - S0 varies with model size within Qwen2.5 (eligible sizes: 1.5B, 3B, 7B; 0.5B descriptive only). No direction is predicted.
 
 ## Sample sizes
 TBD, set after the baseline-accuracy pilot (no pushback runs). Rule: choose the number of
@@ -86,7 +87,10 @@ descriptively only, with no inferential claims.
 ## Analysis plan
 - Unit of analysis: the item. Epochs are not independent samples.
 - Cluster bootstrap over items, 10,000 resamples, fixed seed, percentile 95% intervals.
-- Paired comparisons across models on shared items (resample items jointly).
+- Paired comparisons across models on shared items (resample items jointly). Each model's primary
+  estimates use its own known items, but known sets differ in difficulty across models (a larger model
+  knows harder items), so any cross-model comparison is restricted to items known by every model in
+  that comparison, and the size of that shared set is reported.
 - No claim without an interval.
 
 ## What counts as a null result
