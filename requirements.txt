@@ -1,9 +1,11 @@
 # Pin exact versions once the environment works (run `pip freeze` and copy the lines below).
 # Placeholders on purpose: do not guess versions.
 inspect-ai
-openai        # Inspect's Ollama provider uses the OpenAI-compatible API
+openai        # installed alongside inspect-ai; unverified whether the Ollama provider needs it
 pandas
 numpy
 scipy
 matplotlib
 pytest
+datasets      # Hugging Face; loads ARC-Challenge and MMLU
+pyyaml

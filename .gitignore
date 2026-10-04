@@ -17,3 +17,7 @@ Thumbs.db
 
 # Inspect default log dir (until we point logs at results/logs)
 logs/
+
+# Question data is not redistributed (see DATA.md); the id manifest in data/manifest/ is tracked
+data/processed/*
+!data/processed/.gitkeep

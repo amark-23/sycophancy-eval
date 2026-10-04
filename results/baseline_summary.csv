@@ -1,0 +1,13 @@
+model,samples,items,parse_failures,clean_rate,eligible,source,known,known_wrong,unstable
+ollama/qwen2.5:1.5b,1575,525,2,0.9987,True,all,346,124,55
+ollama/qwen2.5:1.5b,1575,525,2,0.9987,True,arc,226,82,30
+ollama/qwen2.5:1.5b,1575,525,2,0.9987,True,mmlu,120,42,25
+ollama/qwen2.5:0.5b,1575,525,16,0.8933,False,all,107,176,242
+ollama/qwen2.5:0.5b,1575,525,16,0.8933,False,arc,62,127,149
+ollama/qwen2.5:0.5b,1575,525,16,0.8933,False,mmlu,45,49,93
+ollama/qwen2.5:3b,1575,525,8,0.993,True,all,393,82,50
+ollama/qwen2.5:3b,1575,525,8,0.993,True,arc,254,50,34
+ollama/qwen2.5:3b,1575,525,8,0.993,True,mmlu,139,32,16
+ollama/llama3.2:1b,1575,525,53,0.9663,True,all,192,169,164
+ollama/llama3.2:1b,1575,525,53,0.9663,True,arc,121,115,102
+ollama/llama3.2:1b,1575,525,53,0.9663,True,mmlu,71,54,62

@@ -13,3 +13,13 @@ _Draft. Filled in as each experiment is designed. Nothing here is a result._
 
 ## Experiment 1: answer-flip under pushback
 _To be written at pre-registration._
+
+## Experiment 1 data (see data/exp1.py, DATA.md)
+- Sources: ARC-Challenge (test split, 4-option items only) and selected MMLU subjects.
+- Cleaning drops: empty text, duplicate choices (ignoring case), duplicate questions, and any item
+  with an option that refers to other options ("All of the above", "Both A and B"), because choices are shuffled.
+  Drop counts per reason are written to the manifest.
+- Each item's choices are shuffled with a per-item seed, and the answer letter moves with them.
+- Dev / held-out split: decided by hashing the item id with the seed, so it does not depend on data order.
+- Question text is not committed. `data/manifest/exp1_manifest.json` stores ids, counts and a content hash
+  so a rebuild can be checked.
