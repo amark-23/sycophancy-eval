@@ -111,11 +111,10 @@ def main() -> None:
     out_dir = Path("data/processed")
     out_dir.mkdir(parents=True, exist_ok=True)
     print(f"pushback prompt hash: {prompt_hash()} (record this when the prompts are frozen)")
-    for model, log in latest_log_per_model().items():
+    for (model, split), log in latest_log_per_model().items():
         if not summarize(rows_from_log(log))["eligible"]:
-            print(f"{model}: NOT eligible, skipped")
+            print(f"{model} [{split}]: NOT eligible, skipped")
             continue
-        split = (log.eval.task_args or {}).get("split", "dev")
         recs, skipped = [], Counter()
         for item in items_from_log(log):
             r, why = plan_item(item, model, seed)

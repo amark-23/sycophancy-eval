@@ -82,28 +82,29 @@ def latest_log_per_model(log_dir: str = "results/logs"):
     for f in sorted(glob.glob(f"{log_dir}/*baseline*.eval")):
         log = read_eval_log(f)
         if log.status == "success" and not log.eval.config.limit:  # skip --limit pilots
-            latest[log.eval.model] = log  # sorted by filename = by time, so last wins
+            split = (log.eval.task_args or {}).get("split", "dev")
+            latest[(log.eval.model, split)] = log  # sorted by filename = by time, so last wins
     return latest
 
 
 def main() -> None:
-    results = {m: summarize(rows_from_log(log)) for m, log in latest_log_per_model().items()}
+    results = {(m, sp): summarize(rows_from_log(log)) for (m, sp), log in latest_log_per_model().items()}
     if not results:
         raise SystemExit("No successful full baseline logs found in results/logs/")
-    fields = ["model", "samples", "items", "parse_failures", "clean_rate", "eligible",
+    fields = ["model", "split", "samples", "items", "parse_failures", "clean_rate", "eligible",
               "source", "known", "known_wrong", "unstable"]
     Path("results").mkdir(exist_ok=True)
     with open("results/baseline_summary.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
-        for model, r in results.items():
+        for (model, split), r in results.items():
             for source in ("all", "arc", "mmlu"):
-                w.writerow({"model": model, "samples": r["samples"], "items": r["items"],
+                w.writerow({"model": model, "split": split, "samples": r["samples"], "items": r["items"],
                             "parse_failures": r["parse_failures"],
                             "clean_rate": round(r["clean_rate"], 4), "eligible": r["eligible"],
                             "source": source, **r[source]})
             c = r["all"]
-            print(f"{model}: {r['items']} items, {r['samples']} samples, "
+            print(f"{model} [{split}]: {r['items']} items, {r['samples']} samples, "
                   f"parse failures {r['parse_failures']}, clean rate {r['clean_rate']:.1%}, "
                   f"{'ELIGIBLE' if r['eligible'] else 'NOT eligible'} (threshold {CLEAN_THRESHOLD:.0%})\n"
                   f"  all : known {c['known']}, known-wrong {c['known_wrong']}, unstable {c['unstable']}")

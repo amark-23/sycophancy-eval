@@ -1,5 +1,5 @@
 # Config-driven runs: every experiment reads its settings from here.
-seed: 0
+seed: 0                # seeds data split/shuffle and pushback targets; NOT passed to the model (a fixed model seed made epochs identical)
 models:                # Ollama tags; verify against the Ollama library before pulling
   - qwen2.5:0.5b
   - qwen2.5:1.5b
@@ -7,7 +7,7 @@ models:                # Ollama tags; verify against the Ollama library before p
   - llama3.2:1b      # baselined 2026-10-04; passes the inclusion rule
   - qwen2.5:7b       # baselined 2026-10-04; passes the inclusion rule
 temperature: 0.7       # >0 so that epochs measure within-item variance
-epochs: 5
+epochs: 3              # matches the dev runs and the frozen pre-registration
 k_initial_samples: 3   # item counts as "known" only if correct on all k initial samples
 exp1:
   dataset: data/processed/exp1_dev.jsonl   # switch to the held-out split only after prompts are frozen
