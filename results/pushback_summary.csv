@@ -67,3 +67,71 @@ ollama/llama3.2:1b,data/processed/pushback_plan_dev_ollama_llama3.2_1b.jsonl,fli
 ollama/llama3.2:1b,data/processed/pushback_plan_dev_ollama_llama3.2_1b.jsonl,flip_neutral,0.61,0.0,1.39,192
 ollama/llama3.2:1b,data/processed/pushback_plan_dev_ollama_llama3.2_1b.jsonl,flip_bare,5.73,2.95,8.85,192
 ollama/llama3.2:1b,data/processed/pushback_plan_dev_ollama_llama3.2_1b.jsonl,S_strong - S_mild,-0.87,-1.91,0.0,192
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S0,0.0,0.0,0.0,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,U0,0.0,0.0,0.0,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_mild,90.02,88.25,91.69,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,U_mild,92.69,90.59,94.61,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_mild - S0,90.02,88.28,91.69,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,U_mild - U0,92.69,90.59,94.61,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_mild - U_mild,-2.67,-5.37,-0.01,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,flip_wrong_mild,92.44,90.93,93.88,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_strong,82.2,79.89,84.47,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,U_strong,85.39,82.19,88.4,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_strong - S0,82.2,79.89,84.39,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,U_strong - U0,85.39,82.19,88.49,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_strong - U_strong,-3.19,-7.01,0.69,365
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,flip_wrong_strong,84.58,82.43,86.66,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,flip_neutral,0.0,0.0,0.0,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,flip_bare,30.31,27.63,33.07,882
+ollama/qwen2.5:1.5b,data/processed/pushback_plan_heldout_ollama_qwen2.5_1.5b.jsonl,S_strong - S_mild,-7.82,-9.71,-6.01,882
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S0,0.0,0.0,0.0,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,U0,0.95,0.24,1.9,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_mild,99.87,99.66,100.0,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,U_mild,99.37,98.65,99.92,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_mild - S0,99.87,99.66,100.0,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,U_mild - U0,98.42,97.31,99.37,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_mild - U_mild,0.5,-0.06,1.2,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,flip_wrong_mild,99.87,99.66,100.0,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_strong,98.38,97.31,99.33,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,U_strong,97.7,96.44,98.81,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_strong - S0,98.38,97.31,99.33,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,U_strong - U0,96.75,95.25,98.1,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_strong - U_strong,0.68,-0.84,2.25,421
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,flip_wrong_strong,98.38,97.31,99.33,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,flip_neutral,0.4,0.0,1.01,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,flip_bare,7.61,5.66,9.83,495
+ollama/llama3.2:1b,data/processed/pushback_plan_heldout_ollama_llama3.2_1b.jsonl,S_strong - S_mild,-1.48,-2.42,-0.67,495
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S0,0.0,0.0,0.0,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,U0,1.24,0.0,2.79,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_mild,80.49,78.18,82.77,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,U_mild,96.59,94.11,98.6,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_mild - S0,80.49,78.23,82.7,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,U_mild - U0,95.35,92.56,97.83,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_mild - U_mild,-16.1,-19.24,-12.86,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,flip_wrong_mild,83.35,81.2,85.43,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_strong,93.51,92.05,94.86,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,U_strong,97.83,95.81,99.53,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_strong - S0,93.51,92.09,94.86,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,U_strong - U0,96.59,94.11,98.6,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_strong - U_strong,-4.32,-6.56,-1.86,215
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,flip_wrong_strong,95.03,93.77,96.22,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,flip_neutral,0.58,0.19,1.07,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,flip_bare,7.36,5.85,8.95,1032
+ollama/qwen2.5:3b,data/processed/pushback_plan_heldout_ollama_qwen2.5_3b.jsonl,S_strong - S_mild,13.02,11.01,15.07,1032
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S0,0.09,0.0,0.26,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,U0,1.09,0.0,2.72,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_mild,53.51,50.71,56.32,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,U_mild,87.5,82.61,92.03,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_mild - S0,53.43,50.65,56.29,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,U_mild - U0,86.41,81.34,91.12,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_mild - U_mild,-33.99,-39.35,-28.46,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,flip_wrong_mild,54.21,51.4,56.98,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_strong,86.79,84.85,88.67,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,U_strong,96.92,94.2,99.09,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_strong - S0,86.7,84.76,88.61,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,U_strong - U0,95.83,92.75,98.37,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_strong - U_strong,-10.13,-13.08,-6.91,184
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,flip_wrong_strong,87.97,86.15,89.82,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,flip_neutral,0.2,0.0,0.46,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,flip_bare,18.88,16.71,21.08,1153
+ollama/qwen2.5:7b,data/processed/pushback_plan_heldout_ollama_qwen2.5_7b.jsonl,S_strong - S_mild,33.28,30.44,36.08,1153
