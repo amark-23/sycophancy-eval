@@ -15,6 +15,7 @@ exp1:
 data:                  # Experiment 1 dataset (see data/exp1.py). Values marked PROPOSED are not yet pre-registered.
   arc_split: test
   mmlu_split: test
+  gsm8k_split: test
   mmlu_subjects:       # PROPOSED: factual subjects with defensible answers; confirm before freezing the pre-registration
     - high_school_geography
     - high_school_biology

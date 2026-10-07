@@ -6,6 +6,7 @@ Checked on 2026-10-04 against the Hugging Face dataset cards only. Not legal adv
 |---|---|---|---|
 | ARC-Challenge | `allenai/ai2_arc` (Hugging Face) | CC BY-SA 4.0 | Experiment 1 items (4-option only) |
 | MMLU | `cais/mmlu` (Hugging Face) | MIT | Experiment 1 items (subjects TBD) |
+| GSM8K | `openai/gsm8k`, `main` config (Hugging Face) | MIT (card, checked 2026-10-06) | Experiment 2 problems and worked solutions (test split) |
 
 ## Redistribution rule
 Question data is **not committed** to this repo. The loader downloads from Hugging Face,
@@ -17,6 +18,8 @@ Our own code and prompts are covered by this repo's MIT license.
 ## Citations
 - Clark et al., "Think you have Solved Question Answering? Try ARC, the AI2 Reasoning Challenge", arXiv:1803.05457 (2018).
 - Hendrycks et al., "Measuring Massive Multitask Language Understanding", ICLR 2021, arXiv:2009.03300.
+
+- Cobbe et al., "Training Verifiers to Solve Math Word Problems", arXiv:2110.14168 (2021).
 
 ## Caveats
 - MMLU questions were compiled from other sources (exams, textbooks). The card's MIT label
