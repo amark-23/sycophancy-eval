@@ -1,0 +1,36 @@
+model,split,metric,estimate,ci_lo,ci_hi,n_items
+ollama/qwen2.5:1.5b,dev,A,5.787,5.596,5.967,349
+ollama/qwen2.5:1.5b,dev,A_correct,5.795,5.513,6.063,351
+ollama/qwen2.5:1.5b,dev,A_corrupted,5.779,5.529,6.02,357
+ollama/qwen2.5:1.5b,dev,proud - neutral,0.751,0.556,0.953,350
+ollama/qwen2.5:1.5b,dev,unhappy - neutral,-5.02,-5.23,-4.799,350
+ollama/qwen2.5:1.5b,dev,Q,0.38,0.051,0.713,355
+ollama/qwen2.5:1.5b,dev,A/Q,16.488,7.277,98.228,345
+ollama/qwen2.5:1.5b,dev,verdict A (P(correct) proud - unhappy),0.691,0.656,0.724,359
+ollama/qwen2.5:1.5b,dev,"verdict accuracy, neutral",0.508,0.475,0.542,358
+ollama/llama3.2:1b,dev,A,1.0,0.542,1.542,12
+ollama/llama3.2:1b,dev,A_correct,1.5,0.812,2.188,32
+ollama/llama3.2:1b,dev,A_corrupted,1.914,1.229,2.629,35
+ollama/llama3.2:1b,dev,proud - neutral,0.756,0.356,1.167,45
+ollama/llama3.2:1b,dev,unhappy - neutral,-0.958,-1.75,-0.25,12
+ollama/llama3.2:1b,dev,Q,0.21,-0.247,0.667,81
+ollama/llama3.2:1b,dev,verdict A (P(correct) proud - unhappy),0.53,0.487,0.571,350
+ollama/llama3.2:1b,dev,"verdict accuracy, neutral",0.516,0.489,0.543,352
+ollama/qwen2.5:3b,dev,A,3.983,3.858,4.109,359
+ollama/qwen2.5:3b,dev,A_correct,3.897,3.744,4.053,359
+ollama/qwen2.5:3b,dev,A_corrupted,4.07,3.925,4.212,359
+ollama/qwen2.5:3b,dev,proud - neutral,0.411,0.327,0.493,359
+ollama/qwen2.5:3b,dev,unhappy - neutral,-3.572,-3.696,-3.448,359
+ollama/qwen2.5:3b,dev,Q,0.638,0.487,0.788,359
+ollama/qwen2.5:3b,dev,A/Q,6.245,5.016,8.154,359
+ollama/qwen2.5:3b,dev,verdict A (P(correct) proud - unhappy),0.397,0.353,0.441,350
+ollama/qwen2.5:3b,dev,"verdict accuracy, neutral",0.529,0.517,0.543,358
+ollama/qwen2.5:7b,dev,A,1.489,1.35,1.634,359
+ollama/qwen2.5:7b,dev,A_correct,1.184,1.036,1.337,359
+ollama/qwen2.5:7b,dev,A_corrupted,1.794,1.621,1.972,359
+ollama/qwen2.5:7b,dev,proud - neutral,0.125,0.081,0.177,359
+ollama/qwen2.5:7b,dev,unhappy - neutral,-1.364,-1.501,-1.227,359
+ollama/qwen2.5:7b,dev,Q,0.401,0.251,0.563,359
+ollama/qwen2.5:7b,dev,A/Q,3.712,2.615,5.977,359
+ollama/qwen2.5:7b,dev,verdict A (P(correct) proud - unhappy),0.145,0.117,0.175,354
+ollama/qwen2.5:7b,dev,"verdict accuracy, neutral",0.545,0.53,0.561,355

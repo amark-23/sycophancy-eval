@@ -4,7 +4,10 @@ Source: GSM8K (Cobbe et al. 2021), `openai/gsm8k` "main" config, test split; car
 Each problem yields two versions of the same worked solution:
   correct    the reference solution, calculator annotations removed
   corrupted  the last calculation's result (and every later restatement of it) replaced by a wrong
-             number, so the final step is arithmetically wrong. Deterministic given the seed.
+             number (off by +-1 or +-10), so the final step is arithmetically wrong. Subtle.
+  gross      same replacement but the wrong number is 10x the true value plus 3 (sign kept), so the
+             error is large and visible. Used to check that ratings respond to quality when it is
+             visible. Deterministic given the seed.
 Items whose corruption cannot be done cleanly are dropped and counted. Dev/held-out split is by
 hashing the item id (same scheme as Experiment 1). Question text is not committed, only ids.
 
@@ -60,8 +63,10 @@ def _fmt_like(old_match: str, new: int) -> str:
     return f"{new:,}" if "," in old_match else str(new)
 
 
-def corrupt(lines: list[str], final: int, seed: int, key: str) -> tuple[list[str], int] | None:
-    """Return (corrupted annotation-free lines, wrong final) or None if it cannot be done cleanly."""
+def corrupt(lines: list[str], final: int, seed: int, key: str,
+            kind: str = "subtle") -> tuple[list[str], int] | None:
+    """Return (corrupted annotation-free lines, wrong final) or None if it cannot be done cleanly.
+    kind: "subtle" (+-1 or +-10) or "gross" (10x the value plus 3, sign kept)."""
     idx = None
     for i, ln in enumerate(lines):
         for m in _ANNOT.finditer(ln):
@@ -69,10 +74,13 @@ def corrupt(lines: list[str], final: int, seed: int, key: str) -> tuple[list[str
                 idx = i  # last line whose annotation yields the final answer
     if idx is None:
         return None
-    delta = DELTAS[int(_unit(seed, "delta:" + key) * len(DELTAS))]
-    wrong = final + delta
-    if wrong == final or (final >= 0 and wrong < 0):
-        wrong = final + abs(delta)
+    if kind == "gross":
+        wrong = final * 10 + (3 if final >= 0 else -3)
+    else:
+        delta = DELTAS[int(_unit(seed, "delta:" + key) * len(DELTAS))]
+        wrong = final + delta
+        if wrong == final or (final >= 0 and wrong < 0):
+            wrong = final + abs(delta)
     pat = _num_pattern(final)
     out = []
     changed = False
@@ -108,15 +116,18 @@ def process(raw: list[dict], seed: int, dev_fraction: float, split_name: str = "
             continue
         rid = f"gsm8k-{split_name}-{i}"
         c = corrupt(lines, final, seed, rid)
-        if c is None:
+        g = corrupt(lines, final, seed, rid, kind="gross")
+        if c is None or g is None:
             report["dropped_corruption_not_clean"] += 1
             continue
         bad_lines, wrong = c
+        gross_lines, gross = g
         good_lines = [strip_annotations(ln) for ln in lines]
         recs.append({"id": rid, "source": "gsm8k", "question": q,
-                     "final_correct": final, "final_corrupted": wrong,
+                     "final_correct": final, "final_corrupted": wrong, "final_gross": gross,
                      "solution_correct": render_solution(good_lines, final),
-                     "solution_corrupted": render_solution(bad_lines, wrong)})
+                     "solution_corrupted": render_solution(bad_lines, wrong),
+                     "solution_gross": render_solution(gross_lines, gross)})
         report["kept"] += 1
     out = {"dev": [], "heldout": []}
     for r in recs:

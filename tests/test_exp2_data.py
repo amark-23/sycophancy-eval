@@ -58,3 +58,13 @@ def test_process_split_report_and_render():
     out2, _ = process(raw, seed=0, dev_fraction=0.3)
     assert out == out2
     assert render_solution(["a"], 1) == "a\nFinal answer: 1"
+
+
+def test_gross_corruption_is_large_and_consistent():
+    lines, final = parse_answer(EX)
+    out, wrong = corrupt(lines, final, 0, "k", kind="gross")
+    assert wrong == 43 and "8/2=43" in out[2] and "4 are red" not in out[3].replace("43 are red", "") and "43 are red" in out[3]
+    recs, _ = process([{"question": "q", "answer": EX}], seed=0, dev_fraction=0.3)
+    r = (recs["dev"] + recs["heldout"])[0]
+    assert r["final_gross"] == 43 and r["solution_gross"].endswith("Final answer: 43")
+    assert r["solution_gross"] != r["solution_corrupted"] != r["solution_correct"]

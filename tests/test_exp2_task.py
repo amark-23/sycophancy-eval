@@ -1,7 +1,7 @@
 from tasks.feedback import make_samples, parse_reply, phrasing_for
 from tasks.prompts_exp2 import FRAMES, PHRASINGS, prompt_hash, render
 
-REC = {"id": "gsm8k-test-1", "question": "Q?", "solution_correct": "a\nFinal answer: 4",
+REC = {"id": "gsm8k-test-1", "question": "Q?", "solution_correct": "a\nFinal answer: 4", "solution_gross": "a\nFinal answer: 43",
        "solution_corrupted": "a\nFinal answer: 5"}
 
 
@@ -22,10 +22,10 @@ def test_parse_failures():
 
 def test_samples_cover_design_and_are_balanced():
     ss = make_samples([dict(REC, id=f"i{k}") for k in range(400)], seed=0)
-    assert len(ss) == 400 * 2 * 3
+    assert len(ss) == 400 * 3 * 3
     assert {s.metadata["frame"] for s in ss} == set(FRAMES)
     for f in FRAMES:
-        share = sum(s.metadata["phrasing"] for s in ss if s.metadata["frame"] == f) / (400 * 2)
+        share = sum(s.metadata["phrasing"] for s in ss if s.metadata["frame"] == f) / (400 * 3)
         assert 0.4 < share < 0.6
     assert phrasing_for("x", "proud", 0) == phrasing_for("x", "proud", 0)
 
