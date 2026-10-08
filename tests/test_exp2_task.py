@@ -38,3 +38,8 @@ def test_render_only_frame_differs_and_no_correctness_claim():
         for p in PHRASINGS[f]:
             assert not any(w in p.lower() for w in ("correct", "wrong", "mistake", "right"))
     assert len(prompt_hash()) == 12
+
+
+def test_prompt_wording_is_frozen():
+    # Frozen 2026-10-08 (docs/prereg/exp2_feedback.md). Changing the wording needs a deviations-log entry.
+    assert prompt_hash() == "2e4ec960e4a1"

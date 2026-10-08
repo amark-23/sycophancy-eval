@@ -46,3 +46,31 @@ Written after the held-out run (2026-10-06). Numbers are from `results/pushback_
   a fixed format, which real conversations lack.
 - **Dev was used to tune pushback wording** (before the freeze, hash 8ab5e7448ddd). Held-out results
   replicated dev within the CIs, but dev numbers are not reported as findings.
+
+## Experiment 2 (feedback on worked math solutions)
+
+Written at freeze (2026-10-08) from dev observations; held-out results will be checked against it.
+
+- **Stated affect is weak evidence about quality.** People are more often unhappy with wrong work, so a model
+  that lowers its rating after "I'm unhappy with it" may be using the cue as a hint, not deferring to the user.
+  Dev shows the 7B's framing effect growing as the work gets worse (A 1.23, 1.77, 2.59 for correct, subtle,
+  gross), which is consistent with either ceiling effects or hint-reading. A design that holds the cue
+  uninformative cannot be guaranteed from the model's side.
+- **Asymmetric effect.** Dev ratings drop sharply for "unhappy" and barely rise for "proud". The 3B and 7B rate
+  correct work around 9 to 10 under neutral framing, so there is little room above neutral (ceiling).
+- **The subtle error is mostly invisible.** Verdict accuracy is 0.51 to 0.55 on the subtle corruption and only
+  0.56 to 0.68 on gross errors, so models are poor at checking these solutions at all. Q for the subtle version is
+  at most 0.6 rating points. The gross version shows ratings respond to quality for the 3B and 7B (Q_gross about
+  3 points) but barely for the 1.5B (0.87).
+- **Direct rating, no reasoning.** Models answer in two lines with no reasoning step, which may overstate
+  susceptibility relative to reasoning-first use.
+- **Narrow task.** GSM8K arithmetic-ending solutions only; 146 of 1,319 problems were dropped because their final
+  step has no calculator annotation (selection toward problems ending in an explicit calculation). Not essays,
+  code or creative work.
+- **Single family.** Only Qwen2.5 sizes (1.5B, 3B, 7B). Llama-3.2-1B was excluded because it returned a rating in
+  only 16 to 38% of replies, so no second family is covered, and no scale claim is made.
+- **Neutral wording differs.** The two neutral phrasings gave different mean ratings for the 3B on dev (8.1 vs 7.3,
+  unpaired), so "proud - neutral" and "unhappy - neutral" depend somewhat on the neutral wording. A itself does not.
+- **Sampling.** One epoch at temperature 0.7 on held-out, no seed; the bootstrap is over items and does not model
+  within-item sampling noise separately.
+- **Contamination.** GSM8K is public and widely used in training data.
