@@ -1,47 +1,39 @@
 model,split,metric,estimate,ci_lo,ci_hi,n_items
-ollama/qwen2.5:1.5b,dev,A,5.548,5.338,5.753,352
-ollama/qwen2.5:1.5b,dev,A_correct,5.659,5.4,5.924,355
-ollama/qwen2.5:1.5b,dev,A_corrupted,5.427,5.126,5.716,356
-ollama/qwen2.5:1.5b,dev,A_gross,5.648,5.383,5.896,355
-ollama/qwen2.5:1.5b,dev,proud - neutral,0.602,0.393,0.811,352
-ollama/qwen2.5:1.5b,dev,unhappy - neutral,-4.941,-5.166,-4.709,349
-ollama/qwen2.5:1.5b,dev,Q,0.288,-0.014,0.588,354
-ollama/qwen2.5:1.5b,dev,Q_gross,0.865,0.531,1.202,356
-ollama/qwen2.5:1.5b,dev,A/Q_gross,6.317,4.522,10.323,349
-ollama/qwen2.5:1.5b,dev,verdict A (P(correct) proud - unhappy),0.67,0.631,0.708,356
-ollama/qwen2.5:1.5b,dev,"verdict accuracy, neutral",0.511,0.476,0.546,358
-ollama/qwen2.5:1.5b,dev,"verdict accuracy, neutral, gross",0.564,0.511,0.615,358
-ollama/llama3.2:1b,dev,A,1.0,0.542,1.542,12
-ollama/llama3.2:1b,dev,A_correct,1.5,0.812,2.188,32
-ollama/llama3.2:1b,dev,A_corrupted,1.914,1.171,2.6,35
-ollama/llama3.2:1b,dev,proud - neutral,0.756,0.344,1.178,45
-ollama/llama3.2:1b,dev,unhappy - neutral,-0.958,-1.792,-0.25,12
-ollama/llama3.2:1b,dev,Q,0.21,-0.259,0.667,81
-ollama/llama3.2:1b,dev,verdict A (P(correct) proud - unhappy),0.53,0.489,0.571,350
-ollama/llama3.2:1b,dev,"verdict accuracy, neutral",0.516,0.489,0.543,352
-ollama/qwen2.5:3b,dev,A,3.955,3.826,4.085,359
-ollama/qwen2.5:3b,dev,A_correct,3.894,3.738,4.047,359
-ollama/qwen2.5:3b,dev,A_corrupted,4.017,3.869,4.167,359
-ollama/qwen2.5:3b,dev,A_gross,4.348,4.139,4.56,359
-ollama/qwen2.5:3b,dev,proud - neutral,0.46,0.373,0.55,359
-ollama/qwen2.5:3b,dev,unhappy - neutral,-3.496,-3.62,-3.372,359
-ollama/qwen2.5:3b,dev,Q,0.618,0.465,0.777,359
-ollama/qwen2.5:3b,dev,Q_gross,3.538,3.256,3.819,359
-ollama/qwen2.5:3b,dev,A/Q,6.396,5.085,8.521,359
-ollama/qwen2.5:3b,dev,A/Q_gross,1.118,1.033,1.218,359
-ollama/qwen2.5:3b,dev,verdict A (P(correct) proud - unhappy),0.39,0.348,0.434,351
-ollama/qwen2.5:3b,dev,"verdict accuracy, neutral",0.529,0.515,0.543,357
-ollama/qwen2.5:3b,dev,"verdict accuracy, neutral, gross",0.631,0.581,0.682,358
-ollama/qwen2.5:7b,dev,A,1.497,1.359,1.637,359
-ollama/qwen2.5:7b,dev,A_correct,1.226,1.081,1.37,359
-ollama/qwen2.5:7b,dev,A_corrupted,1.769,1.593,1.947,359
-ollama/qwen2.5:7b,dev,A_gross,2.593,2.384,2.802,359
-ollama/qwen2.5:7b,dev,proud - neutral,0.143,0.085,0.209,359
-ollama/qwen2.5:7b,dev,unhappy - neutral,-1.354,-1.489,-1.224,359
-ollama/qwen2.5:7b,dev,Q,0.446,0.306,0.599,359
-ollama/qwen2.5:7b,dev,Q_gross,3.011,2.741,3.287,359
-ollama/qwen2.5:7b,dev,A/Q,3.359,2.488,4.887,359
-ollama/qwen2.5:7b,dev,A/Q_gross,0.497,0.442,0.558,359
-ollama/qwen2.5:7b,dev,verdict A (P(correct) proud - unhappy),0.159,0.129,0.19,356
-ollama/qwen2.5:7b,dev,"verdict accuracy, neutral",0.545,0.53,0.561,354
-ollama/qwen2.5:7b,dev,"verdict accuracy, neutral, gross",0.677,0.629,0.725,356
+ollama/qwen2.5:1.5b,heldout,A,5.698,5.56,5.83,799
+ollama/qwen2.5:1.5b,heldout,A_correct,5.652,5.47,5.83,810
+ollama/qwen2.5:1.5b,heldout,A_corrupted,5.747,5.564,5.932,803
+ollama/qwen2.5:1.5b,heldout,A_gross,5.446,5.254,5.63,807
+ollama/qwen2.5:1.5b,heldout,proud - neutral,0.777,0.638,0.918,795
+ollama/qwen2.5:1.5b,heldout,unhappy - neutral,-4.954,-5.095,-4.811,796
+ollama/qwen2.5:1.5b,heldout,Q,0.13,-0.087,0.346,803
+ollama/qwen2.5:1.5b,heldout,Q_gross,0.661,0.427,0.896,799
+ollama/qwen2.5:1.5b,heldout,A/Q_gross,8.28,6.193,12.482,784
+ollama/qwen2.5:1.5b,heldout,verdict A (P(correct) proud - unhappy),0.712,0.688,0.736,810
+ollama/qwen2.5:1.5b,heldout,"verdict accuracy, neutral",0.509,0.486,0.531,810
+ollama/qwen2.5:1.5b,heldout,"verdict accuracy, neutral, gross",0.551,0.516,0.585,810
+ollama/qwen2.5:3b,heldout,A,4.017,3.934,4.098,814
+ollama/qwen2.5:3b,heldout,A_correct,3.986,3.887,4.088,814
+ollama/qwen2.5:3b,heldout,A_corrupted,4.047,3.948,4.149,814
+ollama/qwen2.5:3b,heldout,A_gross,4.198,4.049,4.349,814
+ollama/qwen2.5:3b,heldout,proud - neutral,0.44,0.381,0.5,814
+ollama/qwen2.5:3b,heldout,unhappy - neutral,-3.577,-3.668,-3.486,814
+ollama/qwen2.5:3b,heldout,Q,0.672,0.565,0.783,814
+ollama/qwen2.5:3b,heldout,Q_gross,3.784,3.603,3.973,814
+ollama/qwen2.5:3b,heldout,A/Q,5.977,5.137,7.123,814
+ollama/qwen2.5:3b,heldout,A/Q_gross,1.062,1.011,1.116,814
+ollama/qwen2.5:3b,heldout,verdict A (P(correct) proud - unhappy),0.399,0.37,0.429,778
+ollama/qwen2.5:3b,heldout,"verdict accuracy, neutral",0.539,0.53,0.549,813
+ollama/qwen2.5:3b,heldout,"verdict accuracy, neutral, gross",0.65,0.617,0.683,811
+ollama/qwen2.5:7b,heldout,A,1.534,1.442,1.629,814
+ollama/qwen2.5:7b,heldout,A_correct,1.327,1.226,1.425,814
+ollama/qwen2.5:7b,heldout,A_corrupted,1.741,1.624,1.859,814
+ollama/qwen2.5:7b,heldout,A_gross,2.348,2.213,2.484,814
+ollama/qwen2.5:7b,heldout,proud - neutral,0.119,0.082,0.157,814
+ollama/qwen2.5:7b,heldout,unhappy - neutral,-1.415,-1.503,-1.327,814
+ollama/qwen2.5:7b,heldout,Q,0.541,0.436,0.651,814
+ollama/qwen2.5:7b,heldout,Q_gross,3.355,3.174,3.532,814
+ollama/qwen2.5:7b,heldout,A/Q,2.837,2.361,3.526,814
+ollama/qwen2.5:7b,heldout,A/Q_gross,0.457,0.426,0.49,814
+ollama/qwen2.5:7b,heldout,verdict A (P(correct) proud - unhappy),0.172,0.15,0.194,798
+ollama/qwen2.5:7b,heldout,"verdict accuracy, neutral",0.554,0.543,0.565,809
+ollama/qwen2.5:7b,heldout,"verdict accuracy, neutral, gross",0.725,0.693,0.756,799
